@@ -8,6 +8,15 @@ namespace HackerOPE
 {
     static class Level
     {
+        private static Room[,] rooms;
+
+        #region proprerties
+        public static Room[,] Rooms
+        {
+            get { return rooms; }
+        }
+
+        #endregion
         //Initialize()
 
         //BuildLevel()

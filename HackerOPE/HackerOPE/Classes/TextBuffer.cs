@@ -8,6 +8,8 @@ namespace HackerOPE
 {
     static class TextBuffer
     {
+        private static string outputBuffer;
+
         // Add()
 
         // Display()
