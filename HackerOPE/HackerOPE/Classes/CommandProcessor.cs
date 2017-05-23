@@ -8,8 +8,14 @@ namespace HackerOPE
 {
     static class CommandProcessor
     {
-        // ProcessCommand()
+        public static void ProcessCommand(string line)
+        {
 
-        // ShowHelp()
+        }
+
+        public static void ShowHelp()
+        {
+
+        }
     }
 }

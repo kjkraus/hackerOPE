@@ -17,9 +17,15 @@ namespace HackerOPE
         }
 
         #endregion
-        //Initialize()
+        public static void Initialize()
+        {
 
-        //BuildLevel()
+        }
+
+        private static void BuildLevel()
+        {
+
+        }
 
 
     }

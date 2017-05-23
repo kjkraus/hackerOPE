@@ -17,7 +17,7 @@ namespace HackerOPE
 
         #region properties
 
-        public int PosX
+        public static int PosX
         {
             get { return posX;  }
             set { posX = value; }
@@ -52,17 +52,35 @@ namespace HackerOPE
 
 
         #endregion
-        //Move()
+        public static void Move(string direction)
+        {
 
-        //PickupItem()
+        }
 
-        //DropItem()
+        public static void PickupItem(string itemName)
+        {
 
-        //DisplayInventory()
+        }
 
-        //GetCurrentRoom()
+        public static void DropItem(string itemName)
+        {
 
-        //GetInventoryItem()
+        }
+
+        public static void DisplayInventory()
+        {
+
+        }
+
+        public static Room GetCurrentRoom()
+        {
+            return null;
+        }
+
+        public static Item GetInventoryItem(string itemName)
+        {
+            return null;
+        }
 
 
 

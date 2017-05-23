@@ -11,7 +11,7 @@ namespace HackerOPE
     {
         static void Main(string[] args)
         {
-            GameManager.ShowTitleScreen();
+           GameManager.ShowTitleScreen();
         }
     }
 }

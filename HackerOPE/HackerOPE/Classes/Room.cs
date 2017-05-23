@@ -35,26 +35,55 @@ namespace HackerOPE
 
         #endregion
 
-        //Public Methods
+        #region public methods
 
-        //Describe()
+        public void Describe()
+        {
 
-        //ShowTitle()
+        }
 
-        //GetItem()
+        public void ShowTitle()
+        {
 
-        //AddExits()
+        }
 
-        //RemoveExits()
+        public Item GetItem(string itemName)
+        {
+            return null;
+        }
 
-        //CanExit()
+        public void AddExits(string direction)
+        {
+            
+        }
+
+        public void RemoveExits(string direction)
+        {
+
+        }
+
+        public bool CanExit(string name)
+        {
+            return false;
+        }
+
+        #endregion
 
         //Private Methods
 
-        //GetItemList()
+        private string GetItemList()
+        {
+            return "";
+        }
 
-        //GetExitList()
+        private string GetExitList()
+        {
+            return "";
+        }
 
-        //GetCoordinates()
+        private string GetCoordinates()
+        {
+            return "";
+        }
     }
 }

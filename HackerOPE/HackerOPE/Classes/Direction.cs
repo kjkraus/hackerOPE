@@ -12,6 +12,10 @@ namespace HackerOPE
         public const string South = "south";
         public const string East = "east";
         public const string West = "west";
-        // IsValidDirection()
+
+        public static bool IsValidDirection(string direction)
+        {
+            return true;
+        }
     }
 }

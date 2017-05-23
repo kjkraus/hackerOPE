@@ -15,11 +15,20 @@ namespace HackerOPE
             Console.ReadLine();
         }
 
-        //Start Game()
+        public static void StartGame()
+        {
 
-        //EndGame()
+        }
 
-        //Applying Rules
+        public static void EndGame()
+        {
+
+        }
+
+        public static void ApplyRules()
+        {
+
+        }
 
 
         

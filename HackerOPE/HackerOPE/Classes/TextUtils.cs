@@ -8,10 +8,20 @@ namespace HackerOPE
 {
     static class TextUtils
     {
-        //ExtractCommand()
+        public static string ExtractCommand(string line)
+        {
+            return "";
 
-        //ExtractArguments()
+        }
 
-        //WordWrap()
+        public static string ExtractArguments(string line)
+        {
+            return "";
+        }
+
+        public static string WordWrap(string text, int bufferWidth)
+        {
+            return text;
+        }
     }
 }

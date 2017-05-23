@@ -10,9 +10,15 @@ namespace HackerOPE
     {
         private static string outputBuffer;
 
-        // Add()
+        public static void Add(string text)
+        {
 
-        // Display()
+        }
+
+        public static void Display()
+        {
+
+        }
 
     }
 }
