@@ -9,6 +9,7 @@ namespace HackerOPE
 {
     class Program
     {
+        public static Boolean quit = false;
         static void Main(string[] args)
         {
            GameManager.ShowTitleScreen();
