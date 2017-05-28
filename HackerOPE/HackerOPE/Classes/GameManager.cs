@@ -11,7 +11,7 @@ namespace HackerOPE
         // Public Methods
         public static void ShowTitleScreen()
         {
-            Console.WriteLine("Welcome to Hacker: Offensive Penetration and Explotation");
+            Console.WriteLine("Welcome to Hacker: Offensive Penetration and Exploitation");
             Console.ReadLine();
         }
 

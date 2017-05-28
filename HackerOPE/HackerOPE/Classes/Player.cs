@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace HackerOPE
 {
-    static class Player
+    internal static class Player
     {
         private static int posX;
         private static int posY;
@@ -19,7 +15,7 @@ namespace HackerOPE
 
         public static int PosX
         {
-            get { return posX;  }
+            get { return posX; }
             set { posX = value; }
         }
 
@@ -44,32 +40,75 @@ namespace HackerOPE
         public static int InventoryWeight
         {
             get
-            {   
+            {
                 //TODO: finish inventory weight calculation.
                 return 0;
             }
         }
 
+        #endregion properties
 
-        #endregion
         public static void Move(string direction)
         {
+            Room room = Player.GetCurrentRoom();
 
+            if (!room.CanExit(direction))
+            {
+                TextBuffer.Add("Invalid direction.");
+                return;
+            }
+
+            Player.moves++;
+
+            switch (direction)
+            {
+                case Direction.North:  // "north"
+                    posY--;
+                    break;
+
+                case Direction.South:
+                    posY++;
+                    break;
+
+                case Direction.East:
+                    posX++;
+                    break;
+
+                case Direction.West:
+                    posX--;
+                    break;
+            }
+
+            Player.GetCurrentRoom().Describe();
         }
 
         public static void PickupItem(string itemName)
         {
+            Room room = Player.GetCurrentRoom();
+            Item item = room.GetItem(itemName);
 
+            if (item != null)
+            {
+                if (Player.InventoryWeight + item.Weight > Player.weightCapacity)
+                {
+                    TextBuffer.Add("You must first drop some weight before you can pickup this item.");
+                    return;
+                }
+
+                room.Items.Remove(item);
+                Player.inventoryItems.Add(item);
+                TextBuffer.Add(item.PickupText);
+            }
+            else
+                TextBuffer.Add("There is no " + itemName + " in this room.");
         }
 
         public static void DropItem(string itemName)
         {
-
         }
 
         public static void DisplayInventory()
         {
-
         }
 
         public static Room GetCurrentRoom()
@@ -81,8 +120,5 @@ namespace HackerOPE
         {
             return null;
         }
-
-
-
     }
 }

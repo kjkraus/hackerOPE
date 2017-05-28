@@ -12,7 +12,14 @@ namespace HackerOPE
         public static Boolean quit = false;
         static void Main(string[] args)
         {
-           GameManager.ShowTitleScreen();
+            GameManager.ShowTitleScreen();
+
+            while (!quit)
+            {
+                CommandProcessor.ProcessCommand(Console.ReadLine());
+            }
+
+            
         }
     }
 }
