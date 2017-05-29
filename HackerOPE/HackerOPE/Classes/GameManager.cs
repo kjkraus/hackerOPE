@@ -13,7 +13,7 @@ namespace HackerOPE
         {
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine(TextUtils.WordWrap("*** Welcome to Hacker: Offensive Penetration and Exploitation ***\n\n\n", 
+            Console.WriteLine(TextUtils.WordWrap("*** PUzzle Game framework ***\n\n\n", 
                                                  Console.WindowWidth));
             Console.WriteLine("\nNOTE: You may type 'help' at anytime");
             Console.WriteLine("\nPress any key to begin.");

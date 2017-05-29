@@ -7,46 +7,54 @@
             string command = TextUtils.ExtractCommand(line.Trim()).Trim().ToLower();
             string arguments = TextUtils.ExtractArguments(line.Trim()).Trim().ToLower();
 
-            switch (command)
+
+            if (Direction.IsValidDirection(command))
             {
-                case "exit":
-                    Program.quit = true;
-                    return;
-
-                case "help":
-                    ShowHelp();
-                    break;
-
-                case "move":
-                    Player.Move(arguments);
-                    break;
-
-                case "look":
-                    Player.GetCurrentRoom().Describe();
-                    break;
-
-                case "pickup":
-                    Player.PickupItem(arguments);
-                    break;
-
-                case "drop":
-                    Player.DropItem(arguments);
-                    break;
-
-                case "inventory":
-                    Player.DisplayInventory();
-                    break;
-
-                case "whereami":
-                    Player.GetCurrentRoom().ShowTitle();
-                    break;
-
-                default:
-                    TextBuffer.Add("Input not understood.");
-                    break;
+                Player.Move(command);
             }
-            GameManager.ApplyRules();
-            TextBuffer.Display();
+            else
+            {
+                switch (command)
+                {
+                    case "exit":
+                        Program.quit = true;
+                        return;
+
+                    case "help":
+                        ShowHelp();
+                        break;
+
+                    case "move":
+                        Player.Move(arguments);
+                        break;
+
+                    case "look":
+                        Player.GetCurrentRoom().Describe();
+                        break;
+
+                    case "pickup":
+                        Player.PickupItem(arguments);
+                        break;
+
+                    case "drop":
+                        Player.DropItem(arguments);
+                        break;
+
+                    case "inventory":
+                        Player.DisplayInventory();
+                        break;
+
+                    case "whereami":
+                        Player.GetCurrentRoom().ShowTitle();
+                        break;
+
+                    default:
+                        TextBuffer.Add("Input not understood.");
+                        break;
+                }
+                GameManager.ApplyRules();
+                TextBuffer.Display();
+            }
         }
 
         public static void ShowHelp()

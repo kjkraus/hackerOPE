@@ -25,12 +25,34 @@ namespace HackerOPE
                 return "";
             else
                 return (line.Substring(index + 1, line.Length - index - 1));
-                    
+
         }
 
         public static string WordWrap(string text, int bufferWidth)
         {
-            return text;
+            string result = "";
+            string[] lines = text.Split('\n');
+
+            foreach (string line in lines)
+            {
+                int lineLength = 0;
+                string[] words = line.Split(' ');
+
+                foreach (string word in words)
+                {
+                    if (word.Length + lineLength >= bufferWidth - 1)
+                    {
+                        result += "\n";
+                        lineLength = 0;
+                    }
+                    result += word + " ";
+                    lineLength += words.Length + 1;
+                }
+
+                result += "\n";
+            }
+
+            return result;
         }
-    }
+    }  
 }

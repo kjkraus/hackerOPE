@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HackerOPE
+﻿namespace HackerOPE
 {
-    struct Direction
+    internal struct Direction
     {
         public const string North = "north";
         public const string South = "south";
@@ -15,7 +9,21 @@ namespace HackerOPE
 
         public static bool IsValidDirection(string direction)
         {
-            return true;
+            switch (direction)
+            {
+                case Direction.North:
+                    return true;
+
+                case Direction.South:
+                    return true;
+
+                case Direction.East:
+                    return true;
+
+                case Direction.West:
+                    return true;
+            }
+            return false;
         }
     }
 }
