@@ -35,6 +35,14 @@ namespace HackerOPE
 
         #endregion
 
+        public Room()
+        {
+            exits = new List<string>();
+            items = new List<Item>();
+
+        }
+
+
         #region public methods
 
         public void Describe()
@@ -60,7 +68,7 @@ namespace HackerOPE
             return null;
         }
 
-        public void AddExits(string direction)
+        public void AddExit(string direction)
         {
             if (this.exits.IndexOf(direction) == -1)
             {
@@ -97,7 +105,7 @@ namespace HackerOPE
             string itemString = "";
             string message = "Items in Room:";
             string underline = "";
-            underline.PadLeft(message.Length, '-');
+            underline = underline.PadLeft(message.Length, '-');
 
             if (this.items.Count > 0 )
             {
@@ -121,7 +129,7 @@ namespace HackerOPE
             string exitString = "";
             string message = "Possible directions:";
             string underline = "";
-            underline.PadLeft(message.Length, '-');
+            underline = underline.PadLeft(message.Length, '-');
 
             if (this.exits.Count > 0)
             {

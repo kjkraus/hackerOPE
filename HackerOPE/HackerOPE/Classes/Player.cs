@@ -9,9 +9,10 @@ namespace HackerOPE
 
         private static List<Item> inventoryItems;
         private static int moves = 0;
-        private static int weightCapacity;
+        private static int weightCapacity = 6;
 
         #region properties
+        
 
         public static int PosX
         {
@@ -41,12 +42,23 @@ namespace HackerOPE
         {
             get
             {
-                //TODO: finish inventory weight calculation.
-                return 0;
+                int result = 0;
+                foreach (Item item in inventoryItems)
+                {
+                    result += item.Weight;
+                }
+                return result;
             }
         }
 
         #endregion properties
+
+        static Player()
+        {
+            inventoryItems = new List<Item>();
+        }
+
+        #region public methods
 
         public static void Move(string direction)
         {
@@ -102,23 +114,60 @@ namespace HackerOPE
             else
                 TextBuffer.Add("There is no " + itemName + " in this room.");
         }
-
+        
         public static void DropItem(string itemName)
         {
+            Room room = Player.GetCurrentRoom();
+            Item item = GetInventoryItem(itemName);
+
+            if (item != null)
+            {
+                Player.inventoryItems.Remove(item);
+                room.Items.Add(item);
+                TextBuffer.Add("The " + itemName + " has been dropped into this room.");
+                  
+            }
+            else
+                TextBuffer.Add("There is no " + itemName + "in your inventory.");
+
         }
 
         public static void DisplayInventory()
         {
+            string message = "Your inventory contains:";
+            string items = "";
+            string underline = "";
+            underline = underline.PadLeft(message.Length, '-');
+
+            if (inventoryItems.Count > 0)
+            {
+                foreach (Item item in inventoryItems)
+                {
+                    items += "\n[" + item.Title + "] Wt: " + item.Weight.ToString();
+                }
+            }
+            else
+                items = "\n<no items>";
+            items += "\n\nTotal Wt: " + Player.InventoryWeight + " / " + Player.WeightCapacity;
+
+            TextBuffer.Add(message + "\n" + underline + items);
         }
 
         public static Room GetCurrentRoom()
         {
-            return null;
+            return Level.Rooms[posX, posY];
         }
 
         public static Item GetInventoryItem(string itemName)
         {
+            foreach (Item item in inventoryItems)
+            {
+                if (item.Title.ToLower() == itemName.ToLower())
+                    return item;
+            }
             return null;
+
         }
+        #endregion
     }
 }

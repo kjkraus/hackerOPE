@@ -13,6 +13,8 @@ namespace HackerOPE
         static void Main(string[] args)
         {
             GameManager.ShowTitleScreen();
+            Level.Initialize();
+            GameManager.StartGame();
 
             while (!quit)
             {

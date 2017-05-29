@@ -20,7 +20,7 @@ namespace HackerOPE
             Console.Clear();
 
             Console.Write(TextUtils.WordWrap(outputBuffer, Console.WindowWidth));
-            Console.WriteLine("What shall I do?");
+            Console.WriteLine("\nWhat shall I do?");
             Console.Write(">");
 
             outputBuffer = ""; //clear the buffer after output to screen
